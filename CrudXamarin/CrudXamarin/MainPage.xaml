@@ -5,14 +5,15 @@
              xmlns:vm="clr-namespace:CrudXamarin.ViewModels">
 
 
-    <ContentPage.BindingContext>
+    <!--<ContentPage.BindingContext>
         <vm:VistaViewModel></vm:VistaViewModel>
-    </ContentPage.BindingContext>
+    </ContentPage.BindingContext>-->
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <StackLayout.BindingContext>
+                <vm:VistaViewModel></vm:VistaViewModel>
+            </StackLayout.BindingContext>
+            <Label Text="{Binding Personas.Count}" />
             <ListView ItemsSource="{Binding Personas}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -25,7 +26,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Text="Eliminar" Command=""></Button>
+            <Button Text="Eliminar" Command="{Binding ComandoMostrar}"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
